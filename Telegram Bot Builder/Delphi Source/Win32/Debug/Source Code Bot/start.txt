@@ -1,14 +1,28 @@
 start(async ctx => {
 
     const privado = (ctx.chat.type)  
+    //Mostra se o grupo ou chat que inicou a conversa com o bot é chat privado ou grupo.
+
     const nomechat = ctx.update.message.chat.title
+    //captura o nome do chat que iniciou a conversa com o bot
+
     const nome = ctx.update.message.from.first_name
+
     const idusuario = ctx.update.message.from.id
+    //captura o id do usuario que iniciou o bot
+
     const surname = ctx.update.message.from.username
+    // pega o sobrenome do usuario que iniciou o bot
+
     const mensagemusuario = ctx.update.message.text
+    //pega a mensagem que o usuario iniciou o bot
+
     const datahora = new Date().toLocaleString()
+    //pega a hora e a data 
 
     console.log(`nome do chat : ${nomechat} Id do usuario : ${idusuario}`)
+
+    //mostra no console nome do chat e o id do usuario
    
     }
 
