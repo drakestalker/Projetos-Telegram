@@ -1,0 +1,112 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.Buttons,
+  Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    MainMenu1: TMainMenu;
+    Arquivo1: TMenuItem;
+    Janelas1: TMenuItem;
+    Opes1: TMenuItem;
+    Lingugem1: TMenuItem;
+    Selecionealinguagemdeprogramao1: TMenuItem;
+    NodeJs1: TMenuItem;
+    Python1: TMenuItem;
+    Salvar1: TMenuItem;
+    Fechar1: TMenuItem;
+    Minimizar1: TMenuItem;
+    N1: TMenuItem;
+    TrayIcon1: TTrayIcon;
+    Memo1: TMemo;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    SaveDialog1: TSaveDialog;
+    SpeedButton2: TSpeedButton;
+    Panel3: TPanel;
+    Edit1: TEdit;
+    Panel4: TPanel;
+    SpeedButton3: TSpeedButton;
+    procedure Fechar1Click(Sender: TObject);
+    procedure Minimizar1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Fechar1Click(Sender: TObject);
+begin
+Application.Terminate;
+
+end;
+
+procedure TForm1.Minimizar1Click(Sender: TObject);
+begin
+Form1.Visible:=false;
+
+end;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+
+var
+
+caminho : string;
+begin
+
+if edit1.Text='' then begin
+
+showmessage('Você precisa determinar um nome para o código!')
+end else begin
+
+
+caminho  := ExtractFilePath(Application.ExeName);
+memo1.Lines.SaveToFile(caminho+'\Source Code Bot\'+Edit1.text+'.txt');
+showmessage('Código Gerado com sucesso!');
+end;
+end;
+
+procedure TForm1.SpeedButton3Click(Sender: TObject);
+var
+  Desktop: TForm2;
+  Socket: TCustomWinSocket;
+begin
+  if LV1.ItemIndex < 0 then
+    exit;
+
+  if LV1.Selected.SubItems.Objects[2] = nil then
+  begin
+    Desktop := TForm2.Create(self);
+    LV1.Selected.SubItems.Objects[2] := TObject(Desktop);
+    Desktop.Caption := 'Desktop Remoto de "' + LV1.Selected.SubItems[0] + '"';
+    Desktop.Show;
+  //  Desktop.Parent:=MainFormapp;
+    Socket := TCustomWinSocket(LV1.Selected.SubItems.Objects[0]);
+    Desktop.Socket := Socket;
+    Socket.SendText('<|first|>');
+  end
+  else if (LV1.Selected.SubItems.Objects[2] as TForm2).Visible = false then
+  begin
+    Socket := TCustomWinSocket(LV1.Selected.SubItems.Objects[0]);
+    (LV1.Selected.SubItems.Objects[2] as TForm2).Socket := Socket;
+    (LV1.Selected.SubItems.Objects[2] as TForm2).Show;
+    (LV1.Selected.SubItems.Objects[2] as TForm2).Socket.SendText('<|first|>');
+  end
+
+end;
+
+end.

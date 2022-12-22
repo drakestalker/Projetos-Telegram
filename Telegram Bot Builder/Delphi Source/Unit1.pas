@@ -30,9 +30,15 @@ type
     SpeedButton2: TSpeedButton;
     Panel3: TPanel;
     Edit1: TEdit;
+    Panel4: TPanel;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    SpeedButton6: TSpeedButton;
     procedure Fechar1Click(Sender: TObject);
     procedure Minimizar1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +81,20 @@ caminho  := ExtractFilePath(Application.ExeName);
 memo1.Lines.SaveToFile(caminho+'\Source Code Bot\'+Edit1.text+'.txt');
 showmessage('Código Gerado com sucesso!');
 end;
+end;
+
+procedure TForm1.SpeedButton4Click(Sender: TObject);
+var
+
+caminho : string;
+begin
+caminho  := ExtractFilePath(Application.ExeName);
+
+
+memo1.Lines.Clear;
+memo1.Lines.Add('Forma de usar : ');
+memo1.Lines.LoadFromFile(caminho+'\Source Code Bot\start.txt');
+
 end;
 
 end.

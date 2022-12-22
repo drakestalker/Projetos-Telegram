@@ -1,0 +1,15 @@
+start(async ctx => {
+
+    const privado = (ctx.chat.type)  
+    const nomechat = ctx.update.message.chat.title
+    const nome = ctx.update.message.from.first_name
+    const idusuario = ctx.update.message.from.id
+    const surname = ctx.update.message.from.username
+    const mensagemusuario = ctx.update.message.text
+    const datahora = new Date().toLocaleString()
+
+    console.log(`nome do chat : ${nomechat} Id do usuario : ${idusuario}`)
+   
+    }
+
+})

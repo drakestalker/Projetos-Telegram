@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'STK - Telegram Bot Builder v 1.0 | 21 12 2022'
-  ClientHeight = 613
+  ClientHeight = 707
   ClientWidth = 1036
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11584,18 +11584,25 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 1036
-    Height = 613
+    Height = 707
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 475
+    ExplicitHeight = 613
     object Memo1: TMemo
       Left = 1
-      Top = 498
+      Top = 108
       Width = 1034
-      Height = 114
-      Align = alBottom
+      Height = 598
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
-      ExplicitTop = 360
+      ExplicitTop = 152
+      ExplicitHeight = 554
     end
     object Panel2: TPanel
       Left = 1
@@ -11604,9 +11611,6 @@ object Form1: TForm1
       Height = 41
       Align = alTop
       TabOrder = 1
-      ExplicitLeft = 360
-      ExplicitTop = 216
-      ExplicitWidth = 185
       object SpeedButton1: TSpeedButton
         Left = 73
         Top = 1
@@ -11641,14 +11645,11 @@ object Form1: TForm1
     end
     object Panel3: TPanel
       Left = 1
-      Top = 42
+      Top = 83
       Width = 1034
       Height = 25
       Align = alTop
       TabOrder = 2
-      ExplicitLeft = 96
-      ExplicitTop = 104
-      ExplicitWidth = 185
       object Edit1: TEdit
         Left = 1
         Top = 1
@@ -11660,9 +11661,79 @@ object Form1: TForm1
         ExplicitHeight = 21
       end
     end
+    object Panel4: TPanel
+      Left = 1
+      Top = 42
+      Width = 1034
+      Height = 41
+      Align = alTop
+      TabOrder = 3
+      object SpeedButton3: TSpeedButton
+        Left = 337
+        Top = 1
+        Width = 112
+        Height = 39
+        Align = alLeft
+        Caption = 'Inline Button'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 1
+      end
+      object SpeedButton4: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 112
+        Height = 39
+        Align = alLeft
+        Caption = 'Ont Start'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = SpeedButton4Click
+        ExplicitLeft = 9
+        ExplicitTop = 2
+      end
+      object SpeedButton5: TSpeedButton
+        Left = 113
+        Top = 1
+        Width = 112
+        Height = 39
+        Align = alLeft
+        Caption = 'Hears'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 1
+      end
+      object SpeedButton6: TSpeedButton
+        Left = 225
+        Top = 1
+        Width = 112
+        Height = 39
+        Align = alLeft
+        Caption = 'Send Message'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 1
+      end
+    end
   end
   object MainMenu1: TMainMenu
-    Left = 920
+    Left = 896
     Top = 512
     object Arquivo1: TMenuItem
       Caption = 'Arquivo'
@@ -11701,11 +11772,11 @@ object Form1: TForm1
     end
   end
   object TrayIcon1: TTrayIcon
-    Left = 856
+    Left = 832
     Top = 512
   end
   object SaveDialog1: TSaveDialog
-    Left = 992
+    Left = 968
     Top = 512
   end
 end
