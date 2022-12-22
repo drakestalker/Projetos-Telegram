@@ -4,10 +4,35 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.Buttons,
+  Vcl.StdCtrls;
 
 type
   TForm1 = class(TForm)
+    Panel1: TPanel;
+    MainMenu1: TMainMenu;
+    Arquivo1: TMenuItem;
+    Janelas1: TMenuItem;
+    Opes1: TMenuItem;
+    Lingugem1: TMenuItem;
+    Selecionealinguagemdeprogramao1: TMenuItem;
+    NodeJs1: TMenuItem;
+    Python1: TMenuItem;
+    Salvar1: TMenuItem;
+    Fechar1: TMenuItem;
+    Minimizar1: TMenuItem;
+    N1: TMenuItem;
+    TrayIcon1: TTrayIcon;
+    Memo1: TMemo;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    SaveDialog1: TSaveDialog;
+    SpeedButton2: TSpeedButton;
+    Panel3: TPanel;
+    Edit1: TEdit;
+    procedure Fechar1Click(Sender: TObject);
+    procedure Minimizar1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -20,5 +45,36 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Fechar1Click(Sender: TObject);
+begin
+Application.Terminate;
+
+end;
+
+procedure TForm1.Minimizar1Click(Sender: TObject);
+begin
+Form1.Visible:=false;
+
+end;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+
+var
+
+caminho : string;
+begin
+
+if edit1.Text='' then begin
+
+showmessage('Você precisa determinar um nome para o código!')
+end else begin
+
+
+caminho  := ExtractFilePath(Application.ExeName);
+memo1.Lines.SaveToFile(caminho+'\Source Code Bot\'+Edit1.text+'.txt');
+showmessage('Código Gerado com sucesso!');
+end;
+end;
 
 end.
